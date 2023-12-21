@@ -1,11 +1,11 @@
 # Read in the file
-input = File.open("./example.txt").read.split("\n")
+input = File.open("./input.txt").read.split("\n")
 
 paper_required = []
 ribbon_required = []
 
 input.each do | presents |
-    dimension = presents.split("x").sort
+    dimension = presents.split("x").map(&:to_i).sort
 
     paper_area = (2 * (dimension[0].to_i * dimension[1].to_i)) + (2 * (dimension[1].to_i * dimension[2].to_i)) + (2 * (dimension[0].to_i * dimension[2].to_i))
 
